@@ -1,10 +1,10 @@
 import streamlit as st
-import pickle
+import joblib  # ✅ Replaced pickle with joblib
 import pandas as pd
 import numpy as np
 
 # 🎨 Custom Styling
-st.set_page_config(page_title="A Risk Calculator for Postoperative Shoulder Arthroplasty Complications ", layout="wide")
+st.set_page_config(page_title="A Risk Calculator for Postoperative Shoulder Arthroplasty Complications", layout="wide")
 
 # Custom CSS to enhance UI
 st.markdown("""
@@ -31,26 +31,25 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 🎯 Define model file paths
+# 🎯 Define model file paths (Updated extensions from .pkl to .joblib)
 model_paths = {
-    "Serious Complication 🤕": "gradient_boosting_model_seriousComp.pkl",
-    "Medical Complication 🏥": "gradient_boosting_model_medicalComp.pkl",
-    "Surgical Complication 🏷️": "gradient_boosting_model_surgicalComp.pkl"
+    "Serious Complication 🤕": "gradient_boosting_model_seriousComp.joblib",
+    "Medical Complication 🏥": "gradient_boosting_model_medicalComp.joblib",
+    "Surgical Complication 🏷️": "gradient_boosting_model_surgicalComp.joblib"
 }
 
-# 🚀 Load the trained models
+# 🚀 Load the trained models using joblib
 @st.cache_resource
 def load_models():
     models = {}
     for name, path in model_paths.items():
-        with open(path, "rb") as file:
-            models[name] = pickle.load(file)
+        models[name] = joblib.load(path)  # ✅ Load using joblib
     return models
 
 models = load_models()
 
 # 🏥 Title of the Streamlit App
-st.markdown('<p class="title-font">Shoulder Arthroplasty Postoperative Risk Calculator </p>', unsafe_allow_html=True)
+st.markdown('<p class="title-font">Shoulder Arthroplasty Postoperative Risk Calculator</p>', unsafe_allow_html=True)
 
 st.markdown("""
 ### 🏥 **Enter Patient Information**
