@@ -13,7 +13,7 @@ complication_type = st.selectbox(
 )
 
 # Load model and encoders
-model, label_encoders = joblib.load(f"models/gbm_{complication_type}.joblib")
+model, label_encoders = joblib.load(f"gbm_{complication_type}.joblib")
 input_vars = list(label_encoders.keys())
 
 # Friendly display name map
