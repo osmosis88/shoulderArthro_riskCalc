@@ -3,7 +3,7 @@ import joblib
 import pandas as pd
 
 st.set_page_config(page_title="Shoulder Arthroplasty APEX-HBD SCORe Risk Prediction", layout="centered")
-st.markdown("<h2 style='text-align: center;'>🩺 Postoperative Complication Risk App</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center;'>🩺 Shoulder Arthroplasty APEX-HBD SCORe Risk Prediction</h2>", unsafe_allow_html=True)
 st.markdown("---")
 
 # Select complication type
