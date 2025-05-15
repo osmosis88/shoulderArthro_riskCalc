@@ -2,7 +2,7 @@ import streamlit as st
 import joblib
 import pandas as pd
 
-st.set_page_config(page_title="Postoperative Risk App", layout="centered")
+st.set_page_config(page_title="Shoulder Arthroplasty APEX-HBD SCORe Risk Prediction", layout="centered")
 st.markdown("<h2 style='text-align: center;'>🩺 Postoperative Complication Risk App</h2>", unsafe_allow_html=True)
 st.markdown("---")
 
@@ -32,7 +32,7 @@ display_names = {
 }
 
 # Input layout
-st.markdown("### 🔍 Patient Information")
+st.markdown("### 🔍 Pre-operative Patient Information")
 user_input = {}
 form_cols = st.columns(2)
 
@@ -89,3 +89,13 @@ if st.button("🧠 Predict"):
         
     </div>
     """, unsafe_allow_html=True)
+# 📢 Disclaimer Section
+st.markdown("---")
+st.markdown("""
+<div style="background-color:#FFF3CD; padding:15px; border-left:5px solid #FFA500;">
+    <strong>Disclaimer Notice:</strong> 
+    This risk calculator is provided for informational purposes only and is not intended to replace professional medical advice, diagnosis, or treatment. 
+    The results are estimates based on general data and user-provided information, and may not accurately reflect individual outcomes. 
+    Always consult your healthcare provider for personalized medical guidance.
+</div>
+""", unsafe_allow_html=True)
